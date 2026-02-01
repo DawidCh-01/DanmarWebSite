@@ -53,19 +53,29 @@ const Header: React.FC<HeaderProps> = ({ activeSection, isAdmin, onAdminToggle }
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm transition-colors duration-500 ${isAdmin ? 'bg-blue-50/95 border-b-2 border-blue-200' : 'bg-white/90'}`}>
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <div 
-          className="flex items-center gap-2 cursor-pointer"
+ <div 
+          className="flex items-center gap-3 cursor-pointer group"
           onClick={() => scrollToSection(AppSection.HERO)}
         >
-          <div className="bg-blue-600 p-2 rounded-lg">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+          {/* Twoje nowe logo graficzne */}
+          <img 
+            src="/logo.png.png" 
+            alt="Danmar Logo" 
+            className="h-12 w-auto object-contain transition-transform group-hover:scale-105" 
+          />
+          
+          {/* Nazwa firmy Danmar i plakietka Admin */}
+          <div className="flex items-center">
+            <span className="font-brand text-2xl font-bold tracking-tight text-slate-800">
+              Danmar
+            </span>
+            {isAdmin && (
+              <span className="ml-2 px-2 py-0.5 bg-blue-600 text-[10px] text-white rounded font-black uppercase tracking-widest">
+                Admin
+              </span>
+            )}
           </div>
-          <div>
-            <span className="font-brand text-2xl font-bold tracking-tight text-slate-800">Danmar</span>
+        </div>
             {isAdmin && <span className="ml-2 px-2 py-0.5 bg-blue-600 text-[10px] text-white rounded font-black uppercase tracking-widest">Admin</span>}
           </div>
         </div>
