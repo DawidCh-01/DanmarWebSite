@@ -1,0 +1,7 @@
+{
+  "name": "Danmar Marcin Chechla - Hydraulika Siłowa",
+  "description": "Profesjonalna witryna dla firmy zajmującej się hydrauliką siłową, zawierająca galerię projektów, ofertę usług oraz system generowania opisów technicznych wspomagany przez AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
