@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 interface FooterProps {
@@ -14,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
   const handleAction = () => {
     if (isAdmin) {
       if (confirm("Czy chcesz wylogować się z panelu?")) {
-        onAdminToggle('danmar2025'); // Dowolne hasło, byle toggle zadziałał na wyjście
+        onAdminToggle('danmar2025'); 
       }
     } else {
       setIsModalOpen(true);
@@ -31,7 +30,6 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
       setPassword('');
     } else {
       setError(true);
-      // Animacja potrząsania błędu
       setTimeout(() => setError(false), 500);
     }
   };
@@ -40,17 +38,24 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
     <footer className="bg-slate-950 text-slate-500 py-16 border-t border-slate-900 relative">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start mb-12">
+          
+          {/* SEKCJA LOGO W STOPCE */}
           <div className="flex flex-col items-center lg:items-start gap-4">
-            <div className="flex items-center gap-2">
-              <div className="bg-blue-600 p-1.5 rounded-lg">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <span className="font-brand text-xl font-bold tracking-tight text-white uppercase">DANMAR <span className="text-blue-600">MARCIN CHECHLA</span></span>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/logo.png" 
+                alt="Danmar Logo" 
+                className="h-10 w-auto object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <span className="font-brand text-xl font-bold tracking-tight text-white uppercase">
+                DANMAR <span className="text-blue-600">MARCIN CHECHLA</span>
+              </span>
             </div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-slate-600 font-black">PRODUKCJA, NAPRAWA I KONSERWACJA MASZYN</p>
-            <p className="text-sm leading-relaxed max-w-xs text-center lg:text-left">
+            <p className="text-sm leading-relaxed max-w-xs text-center lg:text-left text-slate-400">
               Indywidualne podejście i fachowy serwis w zakresie hydrauliki siłowej oraz precyzyjnej obróbki części.
             </p>
           </div>
@@ -92,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
         </div>
       </div>
 
-      {/* CUSTOM ADMIN MODAL */}
+      {/* MODAL ADMINA */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div 
