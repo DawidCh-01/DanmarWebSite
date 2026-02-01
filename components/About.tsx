@@ -112,7 +112,7 @@ const About: React.FC<AboutProps> = ({ isAdmin = false }) => {
           </div>
 
           <div className="lg:w-1/2">
-            <h2 className="text-sm font-bold text-blue-600 tracking-[0.2em] uppercase mb-4">Właściciel Danmar</h2>
+            <h2 className="text-sm font-bold text-blue-600 tracking-[0.2em] uppercase mb-4">Co nas wyróżnia</h2>
             <p className="text-4xl md:text-5xl font-brand font-bold text-slate-900 mb-8 leading-tight">
               WIEDZA I <span className="text-blue-600">PRECYZJA</span>
             </p>
