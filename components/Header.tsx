@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { AppSection } from '../types';
 
@@ -32,7 +31,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection, isAdmin, onAdminToggle }
   };
 
   const handleLogout = () => {
-    // Wywołujemy toggle z poprawnym hasłem, aby przełączyć isAdmin na false
     onAdminToggle('danmar2025');
   };
 
@@ -53,18 +51,23 @@ const Header: React.FC<HeaderProps> = ({ activeSection, isAdmin, onAdminToggle }
   };
 
   return (
- <div 
+    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm transition-colors duration-500 ${isAdmin ? 'bg-blue-50/95 border-b-2 border-blue-200' : 'bg-white/90'}`}>
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+        
+        {/* LOGO I NAZWA FIRMY */}
+        <div 
           className="flex items-center gap-3 cursor-pointer group"
           onClick={() => scrollToSection(AppSection.HERO)}
         >
-          {/* Twoje nowe logo graficzne */}
           <img 
             src="/logo.png" 
             alt="Danmar Logo" 
             className="h-12 w-auto object-contain transition-transform group-hover:scale-105" 
+            onError={(e) => {
+              // Zabezpieczenie: jeśli zdjęcie się nie załaduje, nie pokazuj pustego pola
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
           />
-          
-          {/* Nazwa firmy Danmar i plakietka Admin */}
           <div className="flex items-center">
             <span className="font-brand text-2xl font-bold tracking-tight text-slate-800">
               Danmar
@@ -74,9 +77,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection, isAdmin, onAdminToggle }
                 Admin
               </span>
             )}
-          </div>
-        </div>
-            {isAdmin && <span className="ml-2 px-2 py-0.5 bg-blue-600 text-[10px] text-white rounded font-black uppercase tracking-widest">Admin</span>}
           </div>
         </div>
 
