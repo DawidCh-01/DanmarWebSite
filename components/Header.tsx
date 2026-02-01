@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, isAdmin, onAdminToggle }
         >
           {/* Twoje nowe logo graficzne */}
           <img 
-            src="/logo.png.png" 
+            src="/logo.png" 
             alt="Danmar Logo" 
             className="h-12 w-auto object-contain transition-transform group-hover:scale-105" 
           />
