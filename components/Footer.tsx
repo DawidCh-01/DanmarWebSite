@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
                 }}
               />
               <span className="font-brand text-xl font-bold tracking-tight text-white uppercase">
-                DANMAR <span className="text-blue-600">MARCIN CHECHLA</span>
+                DANMAR SP. Z O.O <span className="text-blue-600">
               </span>
             </div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-slate-600 font-black">PRODUKCJA, NAPRAWA I KONSERWACJA MASZYN</p>
@@ -83,7 +83,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
 
         <div className="pt-8 border-t border-slate-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] uppercase tracking-[0.3em] font-medium">
-            &copy; {new Date().getFullYear()} DANMAR MARCIN CHECHLA. NIEZAWODNE WSPARCIE TWOICH MASZYN.
+            &copy; {new Date().getFullYear()}  DANMAR SP. Z O.O -  NIEZAWODNE WSPARCIE TWOICH MASZYN.
           </p>
           <button 
             onClick={handleAction}
