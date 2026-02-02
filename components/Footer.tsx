@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
                 }}
               />
               <span className="font-brand text-xl font-bold tracking-tight text-white uppercase">
-                DANMAR SP. Z O.O <span className="text-blue-600">
+                DANMAR SP. Z O.O <span className="text-blue-600"></span>
               </span>
             </div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-slate-600 font-black">PRODUKCJA, NAPRAWA I KONSERWACJA MASZYN</p>
@@ -81,10 +81,11 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-8 border-t border-slate-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] uppercase tracking-[0.3em] font-medium">
-            &copy; {new Date().getFullYear()}  DANMAR SP. Z O.O -  NIEZAWODNE WSPARCIE TWOICH MASZYN.
-          </p>
+          &copy; {new Date().getFullYear()} DANMAR SP. Z O.O. – NIEZAWODNE WSPARCIE TWOICH MASZYN
+        </p>
+        </div>
           <button 
             onClick={handleAction}
             className={`transition-all p-3 rounded-xl ${isAdmin ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/40 scale-110' : 'text-slate-800 hover:text-blue-500 hover:bg-slate-900'}`}
