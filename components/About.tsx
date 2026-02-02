@@ -138,11 +138,9 @@ const About: React.FC<AboutProps> = ({ isAdmin = false }) => {
               {activeTab === 'mission' ? (
                 <div className="animate-in fade-in slide-in-from-left-4 duration-500">
                   <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                    Nazywam się <span className="text-slate-900 font-bold">Marcin Chechla</span> i jestem jedyną osobą odpowiedzialną za jakość w firmie Danmar. To miejsce powstało z wieloletniej pasji do mechaniki i chęci dostarczania usług na najwyższym poziomie.
-                  </p>
-                  <p className="text-slate-600 leading-relaxed">
-                    Stawiam na bezpośrednią relację – dzwoniąc do mnie, rozmawiasz z człowiekiem, który faktycznie weźmie Twój sprzęt do rąk. Brak pośredników to gwarancja szybkości, uczciwej ceny i rzetelnej informacji prosto z warsztatu.
-                  </p>
+                    To miejsce powstało z wieloletniej pasji do mechaniki oraz chęci dostarczania usług na najwyższym poziomie. Specjalizujemy się w hydraulice siłowej, łącząc praktyczne doświadczenie z indywidualnym podejściem do każdego zlecenia.
+                    Stawiamy na rzetelną diagnozę, solidne wykonanie oraz trwałe rozwiązania, które sprawdzają się w codziennej pracy naszych klientów. Dla nas najważniejsza jest jakość, terminowość i zaufanie, które budujemy poprzez uczciwą współpracę i fachowe doradztwo.
+                   </p>
                 </div>
               ) : (
                 <div className="animate-in fade-in slide-in-from-right-4 duration-500">
