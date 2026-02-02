@@ -48,10 +48,10 @@ const About: React.FC<AboutProps> = ({ isAdmin = false }) => {
   const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   const profileItems = [
-    { title: "Naprawa maszyn", icon: "⚙️" },
-    { title: "Serwis elektryki", icon: "⚡" },
-    { title: "Hydraulika siłowa", icon: "💧" },
-    { title: "Części nietypowe", icon: "🛠️" }
+      { title: "Serwis i Diagnostyka Maszyn", icon: "⚙️" },
+      { title: "Projektowanie Układów", icon: "📐" },
+      { title: "Regeneracja Podzespołów", icon: "💧" },
+      { title: "Dystrybucja Części", icon: "📦" }
   ];
 
   return (
