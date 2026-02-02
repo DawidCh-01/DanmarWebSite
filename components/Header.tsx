@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, isAdmin, onAdminToggle }
           />
           <div className="flex items-center">
             <span className="font-brand text-2xl font-bold tracking-tight text-slate-800">
-              Danmar
+              DANMAR Sp. Z O.O
             </span>
             {isAdmin && (
               <span className="ml-2 px-2 py-0.5 bg-blue-600 text-[10px] text-white rounded font-black uppercase tracking-widest">
