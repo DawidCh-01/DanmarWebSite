@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 /**
@@ -6,11 +5,11 @@ import React, { useState } from 'react';
  */
 const CONTACT_INFO = {
   phone1: "+48 516 030 778",
-  email: "danmarmarcinchechla@gmail.com", // Zaktualizowany adres e-mail
+  email: "danmarmarcinchechla@gmail.com",
   address: "ul. Krucza 2, 86-070 Nowy Dwór",
   country: "Polska",
-  // Poniższy link służy do integracji z usługami typu Formspree (wpisz tam swój ID)
-  formEndpoint: "https://formspree.io/f/TWOJ_ID_TUTAJ",
+  // Formspree ID: mzdqbqgz
+  formEndpoint: "https://formspree.io/f/mzdqbqgz",
   mapUrl: `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.9113645367586!2d17.82864617711902!3d53.3273420755998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470390a38099391d%3A0xc609c99187910c85!2sKrucza%202%2C%2086-070%20Nowy%20Dw%C3%B3r!5e0!3m2!1spl!2spl!4v1716382181234!5m2!1spl!2spl`
 };
 
@@ -21,27 +20,35 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setStatus('submitting');
     
-    // Symulacja wysyłania (w rzeczywistości tutaj następuje wywołanie fetch do formEndpoint)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Jeśli używasz Formspree, kod wyglądałby tak:
-    /*
-    const response = await fetch(CONTACT_INFO.formEndpoint, {
-      method: 'POST',
-      body: new FormData(e.currentTarget),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) setStatus('success'); else setStatus('error');
-    */
-    
-    setStatus('success');
-    
-    // Reset po 5 sekundach
-    setTimeout(() => setStatus('idle'), 5000);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(CONTACT_INFO.formEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset(); // Czyści formularz po wysłaniu
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+      setStatus('error');
+    }
+
+    // Reset statusu po 10 sekundach (aby błąd lub sukces nie wisiał wiecznie)
+    setTimeout(() => setStatus('idle'), 10000);
   };
 
   return (
-    <section className="py-24 bg-slate-900 text-white">
+    <section className="py-24 bg-slate-900 text-white" id="contact">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">
@@ -57,7 +64,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg">Zadzwoń do nas</h4>
-                  <p className="text-slate-400 font-medium hover:text-blue-400 transition-colors cursor-pointer">{CONTACT_INFO.phone1}</p>
+                  <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, '')}`} className="text-slate-400 font-medium hover:text-blue-400 transition-colors">
+                    {CONTACT_INFO.phone1}
+                  </a>
                 </div>
               </div>
 
@@ -69,7 +78,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg">Napisz e-mail</h4>
-                  <p className="text-slate-400 font-medium hover:text-blue-400 transition-colors cursor-pointer">{CONTACT_INFO.email}</p>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-slate-400 font-medium hover:text-blue-400 transition-colors">
+                    {CONTACT_INFO.email}
+                  </a>
                 </div>
               </div>
 
@@ -95,7 +106,6 @@ const Contact: React.FC = () => {
                     className="w-full h-full border-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                     allowFullScreen={true}
                     loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
               </div>
@@ -123,6 +133,11 @@ const Contact: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {status === 'error' && (
+                  <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-bold border border-red-100 animate-bounce text-center">
+                    Błąd podczas wysyłania. Spróbuj ponownie za chwilę lub zadzwoń bezpośrednio.
+                  </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wider">Imię i Nazwisko</label>
@@ -138,7 +153,7 @@ const Contact: React.FC = () => {
                     <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wider">Email / Telefon</label>
                     <input 
                       required
-                      name="contact"
+                      name="contact_info"
                       type="text" 
                       placeholder="Wpisz e-mail lub numer telefonu" 
                       className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
@@ -149,16 +164,16 @@ const Contact: React.FC = () => {
                   <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wider">Rodzaj usługi / Model maszyny</label>
                   <div className="relative">
                     <select 
-                      name="service"
+                      name="service_type"
                       className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all appearance-none cursor-pointer"
                     >
-                      <option>Wybierz usługę...</option>
-                      <option>Zakuwanie węży</option>
-                      <option>Naprawa siłownika</option>
-                      <option>Serwis pompy</option>
-                      <option>Diagnostyka u klienta</option>
-                      <option>Druk 3D części</option>
-                      <option>Inne</option>
+                      <option value="Nie wybrano">Wybierz usługę...</option>
+                      <option value="Zakuwanie węży">Zakuwanie węży</option>
+                      <option value="Naprawa siłownika">Naprawa siłownika</option>
+                      <option value="Naprawa agregatu hydraulicznego">Serwis agregatu</option>
+                      <option value="Diagnostyka u klienta">Diagnostyka u klienta</option>
+                      <option value="Druk 3D części">Druk 3D części</option>
+                      <option value="Inne">Inne</option>
                     </select>
                     <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,15 +199,7 @@ const Contact: React.FC = () => {
                     status === 'submitting' ? 'bg-slate-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20'
                   }`}
                 >
-                  {status === 'submitting' ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      WYSYŁANIE...
-                    </>
-                  ) : 'WYŚLIJ ZAPYTANIE'}
+                  {status === 'submitting' ? 'WYSYŁANIE...' : 'WYŚLIJ ZAPYTANIE'}
                 </button>
               </form>
             )}
@@ -203,4 +210,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default Contact
