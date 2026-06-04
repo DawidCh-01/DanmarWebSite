@@ -130,9 +130,9 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
           ))}
         </div>
 
-        {/* --- LIGHTBOX (PODGLĄD PEŁNOEKRANOWY) --- */}
+{/* --- LIGHTBOX (PODGLĄD PEŁNOEKRANOWY) --- */}
         {selectedImageIndex !== null && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 backdrop-blur-sm animate-in fade-in duration-300">
             {/* Przycisk zamknij */}
             <button 
               onClick={() => setSelectedImageIndex(null)}
@@ -142,25 +142,25 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
             </button>
 
             {/* Strzałka w lewo */}
-            <button onClick={handlePrev} className="absolute left-4 text-white/50 hover:text-white transition-all hidden md:block z-[110]">
+            <button onClick={handlePrev} className="absolute left-8 text-white/30 hover:text-white transition-all hidden md:block z-[110]">
               <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
             </button>
 
-            {/* ZDJĘCIE */}
-            <div className="relative max-w-5xl max-h-[85vh] px-4 animate-in zoom-in-95 duration-300">
+            {/* KONTENER ZDJĘCIA - TUTAJ ZMNIEJSZYŁEM ROZMIAR */}
+            <div className="relative max-w-3xl max-h-[70vh] px-4 animate-in zoom-in-95 duration-300">
               <img 
                 src={items[selectedImageIndex].url} 
-                className="w-full h-full object-contain rounded-lg shadow-2xl" 
+                className="w-full h-full object-contain rounded-2xl shadow-2xl border-4 border-white/10" 
                 alt="Powiększenie" 
               />
-              <div className="absolute -bottom-12 left-0 right-0 text-center text-white">
-                <p className="text-lg font-bold uppercase tracking-widest">{items[selectedImageIndex].title}</p>
-                <p className="text-sm text-white/50 mt-1">{selectedImageIndex + 1} / {items.length}</p>
+              <div className="absolute -bottom-14 left-0 right-0 text-center text-white">
+                <p className="text-sm font-bold uppercase tracking-[0.2em]">{items[selectedImageIndex].title}</p>
+                <p className="text-[10px] text-white/40 mt-1">{selectedImageIndex + 1} / {items.length}</p>
               </div>
             </div>
 
             {/* Strzałka w prawo */}
-            <button onClick={handleNext} className="absolute right-4 text-white/50 hover:text-white transition-all hidden md:block z-[110]">
+            <button onClick={handleNext} className="absolute right-8 text-white/30 hover:text-white transition-all hidden md:block z-[110]">
               <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
             </button>
             
