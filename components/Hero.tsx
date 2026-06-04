@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={HERO_IMAGE_URL} 
-          alt="Hydraulika Siłowa Danmar" 
+          alt="Hydraulika Siłowa DANMAR" 
           className="w-full h-full object-cover opacity-30 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
