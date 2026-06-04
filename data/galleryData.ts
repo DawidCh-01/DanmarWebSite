@@ -23,11 +23,22 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 4,
     url: '/agregaty.jpeg',
-    title: 'Nowe agregaty hydrauliczne'
+    title: 'Nowy agregat hydrauliczny'
   },
   { 
     id: 5,
     url: '/13.jpg',
-    title: 'Nowe agregaty hydrauliczne'
+    title: 'Nowy siłownik hydrauliczny'
+  }
+    { 
+    id: 6,
+    url: '/16.jpg',
+    title: 'Węże hydrauliczne podczas pracy koparki'
+  }
+  }
+    { 
+    id: 7,
+    url: '/14.jpg',
+    title: 'Instalacja hydrauliczna'
   }
 ];
