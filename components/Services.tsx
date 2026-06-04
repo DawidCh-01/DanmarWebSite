@@ -4,7 +4,7 @@ import { generateServiceDescription } from '../services/geminiService';
 // WAŻNE: Nazwy tutaj muszą być IDENTYCZNE jak w tablicy 'services' na dole
 const FALLBACKS: Record<string, string> = {
   "Naprawa siłowników": "Kompleksowa regeneracja siłowników hydraulicznych: wymiana uszczelnień, szlifowanie tłoczysk i testy szczelności pod ciśnieniem.",
-  "Produkcja agregatów hydraulicznych": "Projektujemy i budujemy stacjonarne oraz mobilne agregaty hydrauliczne dopasowane do indywidualnych potrzeb Twoich maszyn.",
+  "Produkcja agregatów hydraulicznych": "Tworzymy autorskie systemy hydrauliczne skrojone pod Twoje wymagania oraz przywracamy pełną sprawność i wydajność jednostkom używanym.",
   "Zakuwanie węży": "Profesjonalne zakuwanie przewodów hydraulicznych od ręki. Szeroki wybór końcówek i węży o wysokiej wytrzymałości.",
   "Diagnostyka maszyn": "Precyzyjne pomiary ciśnień i przepływów. Wykrywamy usterki zanim doprowadzą do poważnych awarii i przestojów.",
   "Druk 3D": "Szybkie prototypowanie i wytwarzanie nietypowych osłon, uszczelnień oraz części z polimerów technicznych.",
