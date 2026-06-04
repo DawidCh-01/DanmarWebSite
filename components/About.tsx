@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = ({ isAdmin = false }) => {
   const [activeTab, setActiveTab] = useState<TabType>('mission');
   const [images, setImages] = useState<AboutImage[]>([
     { 
-      url: "https://images.unsplash.com/photo-1534229317157-f8369656f709?q=80&w=1974&auto=format&fit=crop", 
+      url: "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2000&auto=format&fit=crop", 
       description: "Mój warsztat – miejsce, gdzie precyzja spotyka się z doświadczeniem." 
     },
   ]);
