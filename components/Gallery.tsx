@@ -1,4 +1,4 @@
-
+import { galleryImages as initialData } from '../data/galleryData';
 import React, { useState } from 'react';
 import { GalleryItem } from '../types';
 import { analyzeIndustrialPhoto } from '../services/geminiService';
@@ -8,7 +8,16 @@ interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
-  const [items, setItems] = useState<GalleryItem[]>([]);
+  // POPRAWKA: Inicjalizujemy stan danymi z pliku galleryData.ts
+  const [items, setItems] = useState<GalleryItem[]>(() => 
+    initialData.map(img => ({
+      id: img.id.toString(),
+      url: img.url,
+      title: img.title,
+      category: 'Realizacja',
+      isAnalyzing: false
+    }))
+  );
 
   const compressImageForAI = (file: File): Promise<string> => {
     return new Promise((resolve) => {
@@ -65,6 +74,7 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
         isAnalyzing: true
       };
 
+      // Dodajemy nowe zdjęcie na początek listy
       setItems(prev => [placeholderItem, ...prev]);
 
       try {
@@ -90,15 +100,15 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white" id="gallery">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <h2 className="text-sm font-bold text-blue-600 tracking-[0.2em] uppercase mb-4">Portfolio</h2>
             <p className="text-4xl md:text-5xl font-brand font-bold text-slate-900 uppercase">Ostatnie Realizacje</p>
             {isAdmin && (
-              <p className="text-blue-600 mt-4 max-w-xl font-bold">
-                Włączony tryb zarządzania. Dodawaj zdjęcia, a AI automatycznie wygeneruje opisy.
+              <p className="text-blue-600 mt-4 max-w-xl font-bold italic animate-pulse">
+                Tryb zarządzania aktywny. Zdjęcia dodane tutaj znikną po odświeżeniu. Aby dodać je na stałe, użyj GitHuba.
               </p>
             )}
           </div>
@@ -116,7 +126,7 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span>DODAJ ZDJĘCIA</span>
+                <span>DODAJ DO PODGLĄDU</span>
               </div>
             </div>
           )}
@@ -129,12 +139,15 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
                 src={item.url} 
                 alt={item.title}
                 className={`w-full h-full object-cover transition-all duration-1000 ${item.isAnalyzing ? 'blur-[2px] scale-105 opacity-80' : 'group-hover:scale-110'}`}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x600?text=Brak+pliku+na+serwerze';
+                }}
               />
               
               {item.isAnalyzing && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/40 backdrop-blur-[1px]">
                   <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-3"></div>
-                  <span className="text-[10px] font-black text-blue-700 uppercase tracking-[0.2em]">Skanowanie AI...</span>
+                  <span className="text-[10px] font-black text-blue-700 uppercase tracking-[0.2em]">Analiza AI...</span>
                 </div>
               )}
 
@@ -153,8 +166,8 @@ const Gallery: React.FC<GalleryProps> = ({ isAdmin = false }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
              </div>
-             <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Portfolio w trakcie aktualizacji</p>
-             {isAdmin && <p className="text-blue-500 text-xs mt-2 font-bold">Użyj przycisku powyżej, aby dodać realizacje</p>}
+             <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Brak zdjęć w galerii</p>
+             {isAdmin && <p className="text-blue-500 text-xs mt-2 font-bold">Wgraj zdjęcia na GitHub do folderu public, aby pojawiły się tutaj na stałe.</p>}
           </div>
         )}
       </div>
