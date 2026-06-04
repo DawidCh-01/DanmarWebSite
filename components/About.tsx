@@ -19,10 +19,6 @@ const About: React.FC<AboutProps> = ({ isAdmin = false }) => {
       url: "https://images.unsplash.com/photo-1534229317157-f8369656f709?q=80&w=1974&auto=format&fit=crop", 
       description: "Mój warsztat – miejsce, gdzie precyzja spotyka się z doświadczeniem." 
     },
-    { 
-      url: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop", 
-      description: "Każdy komponent traktuję z najwyższą uwagą." 
-    }
   ]);
   
   const [currentIndex, setCurrentIndex] = useState(0);
