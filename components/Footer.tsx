@@ -64,8 +64,8 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
             <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-6">Zakres usług</h4>
             <ul className="space-y-3 text-xs uppercase tracking-wider text-slate-600 font-bold">
               <li className="hover:text-blue-500 transition-colors">• Naprawa i konserwacja maszyn</li>
-              <li className="hover:text-blue-500 transition-colors">• Naprawa urządzeń elektrycznych</li>
-              <li className="hover:text-blue-500 transition-colors">• Produkcja sprzętu hydraulicznego</li>
+              <li className="hover:text-blue-500 transition-colors">• Produkcja sprzętu hydrualicznego</li>
+              <li className="hover:text-blue-500 transition-colors">• Druk 3D</li>
               <li className="hover:text-blue-500 transition-colors">• Wytwarzanie części nietypowych</li>
             </ul>
           </div>
