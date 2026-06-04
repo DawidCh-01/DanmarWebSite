@@ -175,7 +175,7 @@ const About: React.FC<AboutProps> = ({ isAdmin = false }) => {
               <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div>
                   <h4 className="text-2xl font-brand font-bold mb-2">Potrzebujesz fachowej pomocy?</h4>
-                  <p className="text-blue-100 text-sm">Zadzwoń bezpośrednio do mnie – ustalimy termin serwisu.</p>
+                  <p className="text-blue-100 text-sm">Zadzwoń do mnie – ustalimy termin serwisu.</p>
                 </div>
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
