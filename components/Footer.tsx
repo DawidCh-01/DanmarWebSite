@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
   const handleAction = () => {
     if (isAdmin) {
       if (confirm("Czy chcesz wylogować się z panelu?")) {
-        onAdminToggle('danmar2025'); 
+        onAdminToggle('danmar2026'); 
       }
     } else {
       setIsModalOpen(true);
