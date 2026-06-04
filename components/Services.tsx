@@ -1,14 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { generateServiceDescription } from '../services/geminiService';
 
+// WAŻNE: Nazwy tutaj muszą być IDENTYCZNE jak w tablicy 'services' na dole
 const FALLBACKS: Record<string, string> = {
-  "Produkcja i naprawa siłowników": "Profesjonalna produkcja nowych siłowników dla potrzeb klienta oraz naprawa siłowników hydraulicznych wszystkich typów, przywracająca pełną sprawność.",
-  "Produkcja agregatów hydraulicznych": "Projektujemy i produkujemy agregaty hydrauliczne oraz zajmujemy się profesjonalną regeneracją i naprawą użyanych.",
-  "Zakuwanie węży": "Szybkie i precyzyjne zakuwanie węży wysokociśnieniowych z użyciem atestowanych końcówek i tulei.",
-  "Diagnostyka maszyn": "Kompleksowe sprawdzanie ciśnień i przepływów w układach hydraulicznych bezpośrednio u klienta.",
-  "Druk 3D": "Wytwarzanie prototypów, uszczelnień oraz nietypowych części z wytrzymałych polimerów technicznych.",
-  "Sprzedaż komponentów": "Szeroki asortyment części: od rozdzielaczy i zaworów, po elementy złączne i uszczelnienia."
+  "Naprawa siłowników": "Kompleksowa regeneracja siłowników hydraulicznych: wymiana uszczelnień, szlifowanie tłoczysk i testy szczelności pod ciśnieniem.",
+  "Produkcja agregatów hydraulicznych": "Projektujemy i budujemy stacjonarne oraz mobilne agregaty hydrauliczne dopasowane do indywidualnych potrzeb Twoich maszyn.",
+  "Zakuwanie węży": "Profesjonalne zakuwanie przewodów hydraulicznych od ręki. Szeroki wybór końcówek i węży o wysokiej wytrzymałości.",
+  "Diagnostyka maszyn": "Precyzyjne pomiary ciśnień i przepływów. Wykrywamy usterki zanim doprowadzą do poważnych awarii i przestojów.",
+  "Druk 3D": "Szybkie prototypowanie i wytwarzanie nietypowych osłon, uszczelnień oraz części z polimerów technicznych.",
+  "Sprzedaż komponentów": "Bogaty asortyment: pompy, rozdzielacze, zawory oraz elementy złączne dostępne bezpośrednio z naszego magazynu."
 };
 
 interface ServiceCardProps {
@@ -17,7 +17,6 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon }) => {
-  // Start with fallback text so the user sees content immediately
   const [description, setDescription] = useState<string>(FALLBACKS[title] || "Profesjonalne usługi hydrauliki siłowej.");
 
   useEffect(() => {
@@ -49,7 +48,8 @@ const Services: React.FC = () => {
       title: "Naprawa siłowników",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h8m-8 4h8m-9 8h10a1 1 0 001-1V5a1 1 0 00-1-1H7a1 1 0 00-1 1v13a1 1 0 001 1zm3-15v-2m4 2v-2" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19v3" />
         </svg>
       )
     },
@@ -57,7 +57,8 @@ const Services: React.FC = () => {
       title: "Produkcja agregatów hydraulicznych",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          <circle cx="12" cy="15" r="2" strokeWidth="2" />
         </svg>
       )
     },
@@ -65,7 +66,9 @@ const Services: React.FC = () => {
       title: "Zakuwanie węży",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          <circle cx="6" cy="6" r="3" strokeWidth="2" />
+          <circle cx="18" cy="18" r="3" strokeWidth="2" />
         </svg>
       )
     },
@@ -73,7 +76,9 @@ const Services: React.FC = () => {
       title: "Diagnostyka maszyn",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <circle cx="12" cy="12" r="9" strokeWidth="2" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 12L15 9" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 7v1m0 8v1m-4-5h1m8 0h1" />
         </svg>
       )
     },
@@ -81,7 +86,8 @@ const Services: React.FC = () => {
       title: "Druk 3D",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
         </svg>
       )
     },
@@ -89,14 +95,15 @@ const Services: React.FC = () => {
       title: "Sprzedaż komponentów",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          <circle cx="12" cy="12" r="2" strokeWidth="2" />
         </svg>
       )
     }
   ];
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-slate-50" id="services">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-blue-600 tracking-[0.2em] uppercase mb-4">Nasza Specjalizacja</h2>
