@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { generateServiceDescription } from '../services/geminiService';
 
 const FALLBACKS: Record<string, string> = {
-  "Naprawa siłowników": "Profesjonalna regeneracja i naprawa siłowników hydraulicznych wszystkich typów, przywracająca pełną sprawność.",
+  "Produkcja i naprawa siłowników": "Profesjonalna produkcja nowych siłowników dla potrzeb klienta oraz naprawa siłowników hydraulicznych wszystkich typów, przywracająca pełną sprawność.",
+  "Produkcja agregatów hydraulicznych": "Projektujemy i produkujemy agregaty hydrauliczne oraz zajmujemy się profesjonalną regeneracją i naprawą użyanych.",
   "Zakuwanie węży": "Szybkie i precyzyjne zakuwanie węży wysokociśnieniowych z użyciem atestowanych końcówek i tulei.",
-  "Serwis pomp": "Diagnostyka i naprawa pomp hydraulicznych tłoczkowych, zębatych oraz łopatkowych renomowanych producentów.",
   "Diagnostyka maszyn": "Kompleksowe sprawdzanie ciśnień i przepływów w układach hydraulicznych bezpośrednio u klienta.",
   "Druk 3D": "Wytwarzanie prototypów, uszczelnień oraz nietypowych części z wytrzymałych polimerów technicznych.",
   "Sprzedaż komponentów": "Szeroki asortyment części: od rozdzielaczy i zaworów, po elementy złączne i uszczelnienia."
@@ -54,7 +54,7 @@ const Services: React.FC = () => {
       )
     },
     {
-      title: "Zakuwanie węży",
+      title: "Produkcja agregatów hydraulicznych",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -62,7 +62,7 @@ const Services: React.FC = () => {
       )
     },
     {
-      title: "Serwis pomp",
+      title: "Zakuwanie węży",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
