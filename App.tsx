@@ -33,7 +33,7 @@ const App: React.FC = () => {
   }, []);
 
   const toggleAdmin = (pass: string) => {
-    if (pass === 'danmar2025') {
+    if (pass === 'danmar2026') {
       setIsAdmin(!isAdmin);
       return true;
     }
