@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
             </span>
-            <span className="text-blue-400 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">Eksperci Technologii Siłowej</span>
+            <span className="text-blue-400 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">Eksperci Hydrauliki Siłowej</span>
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-8xl font-brand font-bold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
