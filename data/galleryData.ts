@@ -17,16 +17,17 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 3,
-    url: '/instalacja 2.jpeg',
+    url: '/instalacja-2.jpeg',
     title: 'Instalacja hydrauliczna'
   },
   {
     id: 4,
     url: '/agregaty.jpeg',
-    title: 'Nowe agregaty hydraulczne'
-   },
-   { 
-    id: 4,
-    url: '/agregaty.jpeg',
-    title: 'Nowe agregaty hydraulczne'
-    ];
+    title: 'Nowe agregaty hydrauliczne'
+  },
+  { 
+    id: 5,
+    url: '/13.jpg',
+    title: 'Nowe agregaty hydrauliczne'
+  }
+];
