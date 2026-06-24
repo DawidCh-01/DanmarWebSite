@@ -7,22 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- SKALOWANIE ZAWARTOŚCI (75%) --- */
+        /* --- SKALOWANIE ZAWARTOŚCI DO 90% --- */
         html {
-            /* Zmniejszamy bazę, co pomniejszy wszystkie elementy na stronie */
-            font-size: 12px !important; 
+            /* 14.4px to dokładnie 90% ze standardowych 16px */
+            font-size: 14.4px !important; 
         }
 
         @media (max-width: 768px) {
             html {
-                /* Na telefonach przywracamy 100% wielkości dla czytelności */
+                /* Na telefonach zostawiamy 100% (16px), aby tekst był czytelny */
                 font-size: 16px !important;
             }
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Tło na 100% szerokości */
             width: 100%;
             margin: 0;
             padding: 0;
@@ -34,7 +33,6 @@
             font-family: 'Orbitron', sans-serif;
         }
 
-        /* Upewniamy się, że kontener aplikacji wypełnia całą szerokość dla teł */
         #root {
             width: 100%;
         }
