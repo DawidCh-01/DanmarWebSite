@@ -3,19 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danmar - Ekspert Hydrauliki Siłowej</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TYTUŁ STRONY -->
+    <title>DANMAR – Hydraulika Siłowa | Serwis, Naprawa i Regeneracja</title>
+
+    <!-- OPIS STRONY W GOOGLE -->
+    <meta name="description" content="DANMAR – profesjonalna hydraulika siłowa i przemysłowa. Naprawa i regeneracja siłowników hydraulicznych, produkcja agregatów, zakuwanie węży hydraulicznych, diagnostyka i serwis układów hydraulicznych.">
+
+    <!-- INDEKSOWANIE -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- ADRES KANONICZNY -->
+    <link rel="canonical" href="https://danmarhydraulikasilowa.pl/">
+
+    <!-- INFORMACJE O FIRMIE -->
+    <meta name="author" content="DANMAR – Hydraulika Siłowa">
+    <meta name="language" content="Polish">
+
+    <!-- SOCIAL MEDIA / OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="DANMAR – Hydraulika Siłowa">
+    <meta property="og:title" content="DANMAR – Profesjonalna Hydraulika Siłowa">
+    <meta property="og:description" content="Serwis hydrauliki siłowej, regeneracja siłowników, produkcja agregatów hydraulicznych i zakuwanie przewodów hydraulicznych.">
+    <meta property="og:url" content="https://danmarhydraulikasilowa.pl/">
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DANMAR – Hydraulika Siłowa">
+    <meta name="twitter:description" content="Profesjonalny serwis i naprawa hydrauliki siłowej.">
+
+    <!-- KOLOR PRZEGLĄDARKI -->
+    <meta name="theme-color" content="#f8fafc">
+
+    <!-- DANE STRUKTURALNE GOOGLE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DANMAR – Hydraulika Siłowa",
+      "url": "https://danmarhydraulikasilowa.pl/",
+      "description": "Usługi hydrauliki siłowej i przemysłowej, naprawa i regeneracja siłowników hydraulicznych, produkcja agregatów hydraulicznych, zakuwanie węży oraz diagnostyka układów hydraulicznych.",
+      "knowsAbout": [
+        "Hydraulika siłowa",
+        "Hydraulika przemysłowa",
+        "Serwis hydrauliki siłowej",
+        "Naprawa siłowników hydraulicznych",
+        "Regeneracja siłowników hydraulicznych",
+        "Produkcja agregatów hydraulicznych",
+        "Zakuwanie węży hydraulicznych",
+        "Diagnostyka układów hydraulicznych",
+        "Komponenty hydrauliczne",
+        "Projektowanie układów hydraulicznych",
+        "Druk 3D części technicznych"
+      ]
+    }
+    </script>
+
+    <!-- CZCIONKI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- STYLE -->
     <style>
-        /* --- SKALOWANIE ZAWARTOŚCI DO 90% --- */
         html {
-            /* 14.4px to dokładnie 90% ze standardowych 16px */
-            font-size: 14.4px !important; 
+            font-size: 14.4px !important;
         }
 
         @media (max-width: 768px) {
             html {
-                /* Na telefonach zostawiamy 100% (16px), aby tekst był czytelny */
                 font-size: 16px !important;
             }
         }
@@ -37,6 +98,8 @@
             width: 100%;
         }
     </style>
+
+    <!-- IMPORT MAP -->
     <script type="importmap">
     {
       "imports": {
@@ -47,10 +110,18 @@
       }
     }
     </script>
+
+    <!-- GŁÓWNY ARKUSZ CSS -->
     <link rel="stylesheet" href="/index.css">
+
 </head>
+
 <body class="bg-slate-50 text-slate-900">
+
     <div id="root"></div>
+
+    <!-- APLIKACJA REACT -->
     <script type="module" src="/index.tsx"></script>
+
 </body>
 </html>
