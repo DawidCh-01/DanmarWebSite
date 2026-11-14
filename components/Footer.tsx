@@ -11,9 +11,10 @@ const PHONE_LINK = '+48516030778';
 const EMAIL = 'danmarmarcinchechla@gmail.com';
 const ADDRESS = 'Krucza 2, 86-070 Nowy Dwór';
 
-const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+// Bezpośredni link do wizytówki DANMAR w Google Maps
+const MAP_URL = 'https://maps.app.goo.gl/3dF3VnQH9nZ4mUX8A';
 
-// Wstaw tutaj rzeczywiste adresy podstron, jeśli już istnieją.
+// Adresy podstron
 const PRIVACY_URL = '/polityka-prywatnosci';
 const RODO_URL = '/rodo';
 
@@ -223,9 +224,15 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
             type="button"
             onClick={handleAction}
             className="rounded px-2 py-1 transition hover:text-blue-400"
-            aria-label={isAdmin ? 'Wyloguj administratora' : 'Panel administratora'}
+            aria-label={
+              isAdmin
+                ? 'Wyloguj administratora'
+                : 'Panel administratora'
+            }
           >
-            {isAdmin ? 'Panel administratora · Wyloguj' : 'Panel administratora'}
+            {isAdmin
+              ? 'Panel administratora · Wyloguj'
+              : 'Panel administratora'}
           </button>
         </div>
       </div>
