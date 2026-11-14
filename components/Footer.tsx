@@ -1,4 +1,4 @@
-```tsx
+
 import React, { useEffect, useState } from 'react';
 
 interface FooterProps {
@@ -7,7 +7,6 @@ interface FooterProps {
 }
 
 const PHONE = '+48 516 030 778';
-const PHONE_LINK = '+48516030778';
 const EMAIL = 'danmarmarcinchechla@gmail.com';
 const ADDRESS = 'Krucza 2, 86-070 Nowy Dwór';
 
@@ -96,7 +95,6 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
   return (
     <footer className="bg-slate-950 text-slate-300">
       <div className="mx-auto max-w-7xl px-6 py-14">
-
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* O FIRMIE */}
@@ -133,10 +131,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
 
             <ul className="space-y-3 text-sm text-slate-400">
               {services.map((service) => (
-                <li
-                  key={service}
-                  className="flex items-start gap-2"
-                >
+                <li key={service} className="flex items-start gap-2">
                   <span className="mt-0.5 text-blue-500">›</span>
                   <span>{service}</span>
                 </li>
@@ -151,14 +146,13 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
             </h3>
 
             <ul className="space-y-4 text-sm">
-
               <li>
                 <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Telefon
                 </span>
 
                 <a
-                  href={`tel:${PHONE_LINK}`}
+                  href="tel:+48516030778"
                   className="text-slate-300 transition hover:text-blue-400"
                 >
                   {PHONE}
@@ -194,7 +188,6 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
                   <span className="ml-1 text-blue-400">↗</span>
                 </a>
               </li>
-
             </ul>
           </div>
 
@@ -210,9 +203,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
                   key={item.day}
                   className="flex items-center justify-between gap-3 border-b border-slate-800 pb-2"
                 >
-                  <span className="text-slate-400">
-                    {item.day}
-                  </span>
+                  <span className="text-slate-400">{item.day}</span>
 
                   <span
                     className={
@@ -227,7 +218,6 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
               ))}
             </ul>
           </div>
-
         </div>
 
         {/* DANE FIRMY */}
@@ -261,7 +251,6 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
 
         {/* DOLNA BELKA */}
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-center text-xs text-slate-500 sm:flex-row sm:text-left">
-
           <p>
             © {new Date().getFullYear()} DANMAR SP. Z O.O.
             {' '}Wszelkie prawa zastrzeżone.
@@ -281,7 +270,6 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
               ? 'Panel administratora · Wyloguj'
               : 'Panel administratora'}
           </button>
-
         </div>
       </div>
 
@@ -326,10 +314,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
               />
 
               {loginError && (
-                <p
-                  className="mb-3 text-sm text-red-400"
-                  role="alert"
-                >
+                <p className="mb-3 text-sm text-red-400" role="alert">
                   Nieprawidłowe hasło. Spróbuj ponownie.
                 </p>
               )}
@@ -360,4 +345,3 @@ const Footer: React.FC<FooterProps> = ({ onAdminToggle, isAdmin }) => {
 };
 
 export default Footer;
-```
