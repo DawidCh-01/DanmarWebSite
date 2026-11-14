@@ -11,9 +11,7 @@ const PHONE_LINK = '+48516030778';
 const EMAIL = 'danmarmarcinchechla@gmail.com';
 const ADDRESS = 'Krucza 2, 86-070 Nowy Dwór';
 
-const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  ADDRESS
-)}`;
+const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
 // Wstaw tutaj rzeczywiste adresy podstron, jeśli już istnieją.
 const PRIVACY_URL = '/polityka-prywatnosci';
