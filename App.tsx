@@ -1,5 +1,6 @@
-import CallButton from './components/CallButton';
+
 import React, { useState, useEffect } from 'react';
+import CallButton from './components/CallButton';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -16,11 +17,13 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = Object.values(AppSection);
+
       for (const section of sections) {
         const element = document.getElementById(section);
+
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Offset uwzględniający wysokość headera (80px)
+
           if (rect.top >= -100 && rect.top <= 150) {
             setActiveSection(section);
           }
@@ -29,6 +32,7 @@ const App: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -37,19 +41,23 @@ const App: React.FC = () => {
       setIsAdmin(!isAdmin);
       return true;
     }
+
     return false;
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header activeSection={activeSection} isAdmin={isAdmin} onAdminToggle={toggleAdmin} />
-      
-      {/* pt-20 zapobiega chowaniu się góry pierwszej sekcji pod fixed headerem */}
+      <Header
+        activeSection={activeSection}
+        isAdmin={isAdmin}
+        onAdminToggle={toggleAdmin}
+      />
+
       <main className="flex-grow pt-20">
         <div id={AppSection.HERO} className="scroll-mt-20">
           <Hero />
         </div>
-        
+
         <div id={AppSection.SERVICES} className="scroll-mt-20">
           <Services />
         </div>
@@ -67,7 +75,13 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      <Footer onAdminToggle={toggleAdmin} isAdmin={isAdmin} />
+      <Footer
+        onAdminToggle={toggleAdmin}
+        isAdmin={isAdmin}
+      />
+
+      {/* Przycisk szybkiego kontaktu telefonicznego */}
+      <CallButton />
     </div>
   );
 };
